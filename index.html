@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Mandarin Self-Study Buddy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="app-bg flex items-center justify-center min-h-screen p-4">
+
+  <div class="flex flex-col w-full max-w-2xl chat-container overflow-hidden">
+
+    <!-- Header -->
+    <header class="app-header px-6 py-4 flex items-center gap-3 shrink-0">
+      <div class="header-icon">中</div>
+      <div>
+        <h1 class="header-title">AI Mandarin Self-Study Buddy</h1>
+        <p class="header-sub">Belajar Mandarin kapan saja dengan bantuan AI · 随时随地学中文</p>
+      </div>
+      <span id="status-dot" class="ml-auto w-2.5 h-2.5 rounded-full bg-green-400 shrink-0" title="Online"></span>
+    </header>
+
+    <!-- Tab bar (decorative, mirrors the reference UI) -->
+    <div class="tab-bar px-4 flex gap-1 shrink-0">
+      <span class="tab-item tab-active">💬 Percakapan</span>
+      <span class="tab-item">📚 Kosakata</span>
+      <span class="tab-item">✏️ Latihan</span>
+    </div>
+
+    <!-- Chat area -->
+    <main id="chat-window" class="flex-1 overflow-y-auto px-5 py-5 space-y-4 scroll-smooth chat-area">
+
+      <!-- Welcome message -->
+      <div class="flex items-end gap-2 message-row">
+        <div class="avatar ai-avatar shrink-0">AI</div>
+        <div class="bubble ai-bubble">
+          <span class="chinese-text">你好！</span>
+          <span class="pinyin-text">Nǐ hǎo!</span>
+          <span class="bubble-text">Saya adalah <strong>AI Mandarin Self-Study Buddy</strong> Anda. Tanyakan kosakata, tata bahasa, pinyin, atau ajak saya bercakap-cakap dalam bahasa Mandarin!</span>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Typing indicator -->
+    <div id="typing-indicator" class="hidden px-5 pb-2">
+      <div class="flex items-end gap-2">
+        <div class="avatar ai-avatar shrink-0">AI</div>
+        <div class="bubble ai-bubble py-3 px-4">
+          <span class="typing-dots">
+            <span></span><span></span><span></span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input area -->
+    <footer class="input-footer px-4 py-3 shrink-0">
+      <form id="chat-form" class="flex items-center gap-2" autocomplete="off">
+        <input
+          id="user-input"
+          type="text"
+          placeholder="Ketik pesan atau karakter Mandarin…"
+          class="chat-input flex-1"
+          autocomplete="off"
+        />
+        <button
+          id="send-btn"
+          type="submit"
+          class="send-btn"
+          aria-label="Kirim"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 translate-x-px">
+            <path d="M3.478 2.405a.75.75 0 0 0-.926.94l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.405Z"/>
+          </svg>
+        </button>
+      </form>
+    </footer>
+
+  </div>
+
+  <!-- config.js HARUS dimuat sebelum app.js — berisi LANGFLOW_API_URL & BEARER_TOKEN -->
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

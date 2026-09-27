@@ -1,0 +1,263 @@
+/* ═══════════════════════════════════════════════════════════════════
+   COLOUR TOKENS  —  inspired by the Mandarin study app reference image
+   Background:  warm grey  #d6d0c8
+   Container:   off-white  #f0ede8
+   Chat area:   lighter    #e8e4dd
+   Header:      dark slate #2c3040
+   Tab active:  dark slate #2c3040
+   Bubble AI:   white      #ffffff  (left, rounded card style)
+   Bubble User: teal-grey  #c5d5d0  (right)
+   Accent red:  brick      #c0392b  (pinyin, avatar)
+   Text main:   #2c2c2c
+   Text muted:  #6b6b6b
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── Base ────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, "Segoe UI", system-ui, "Noto Sans SC", sans-serif;
+}
+
+/* ── App background ──────────────────────────────────────────────── */
+.app-bg {
+  background-color: #d6d0c8;
+  min-height: 100vh;
+}
+
+/* ── Chat container card ─────────────────────────────────────────── */
+.chat-container {
+  height: 90vh;
+  background-color: #f0ede8;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+
+/* ── Header ──────────────────────────────────────────────────────── */
+.app-header {
+  background-color: #2c3040;
+  color: #fff;
+}
+
+.header-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: #c0392b;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: -0.5px;
+}
+
+.header-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.header-sub {
+  font-size: 11px;
+  color: #9ba3b8;
+  margin-top: 1px;
+}
+
+/* ── Tab bar ─────────────────────────────────────────────────────── */
+.tab-bar {
+  background-color: #23273a;
+  padding-top: 6px;
+  padding-bottom: 0;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.tab-item {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #9ba3b8;
+  padding: 6px 14px 7px;
+  border-radius: 8px 8px 0 0;
+  cursor: default;
+  user-select: none;
+  transition: color 0.15s;
+}
+
+.tab-item.tab-active {
+  background-color: #f0ede8;
+  color: #2c3040;
+  font-weight: 600;
+}
+
+/* ── Chat area ───────────────────────────────────────────────────── */
+.chat-area {
+  background-color: #e8e4dd;
+}
+
+#chat-window::-webkit-scrollbar { width: 5px; }
+#chat-window::-webkit-scrollbar-track { background: transparent; }
+#chat-window::-webkit-scrollbar-thumb { background: #c5bfb5; border-radius: 999px; }
+#chat-window::-webkit-scrollbar-thumb:hover { background: #aba49a; }
+
+/* ── Avatar circles ──────────────────────────────────────────────── */
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ai-avatar {
+  background-color: #c0392b;
+  color: #fff;
+}
+
+.user-avatar {
+  background-color: #2c3040;
+  color: #fff;
+  font-size: 13px;
+}
+
+/* ── Bubbles ─────────────────────────────────────────────────────── */
+.bubble {
+  max-width: 72%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* AI bubble: white card, left, bottom-left corner flat */
+.ai-bubble {
+  background-color: #ffffff;
+  color: #2c2c2c;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* User bubble: muted teal-grey, right, bottom-right corner flat */
+.user-bubble {
+  background-color: #c5d5d0;
+  color: #1e2a28;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+}
+
+/* ── In-bubble text layers (mirrors reference) ───────────────────── */
+.chinese-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e1e1e;
+  line-height: 1.4;
+}
+
+.pinyin-text {
+  font-size: 13px;
+  font-style: italic;
+  color: #c0392b;        /* brick red — exactly like the reference */
+  line-height: 1.3;
+}
+
+.bubble-text {
+  font-size: 13px;
+  color: #4a4a4a;
+  margin-top: 4px;
+  line-height: 1.6;
+}
+
+/* ── Input footer ────────────────────────────────────────────────── */
+.input-footer {
+  background-color: #f0ede8;
+  border-top: 1px solid #d8d3cc;
+}
+
+.chat-input {
+  flex: 1;
+  border-radius: 999px;
+  border: 1.5px solid #c8c2ba;
+  background-color: #fff;
+  padding: 10px 18px;
+  font-size: 14px;
+  color: #2c2c2c;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.chat-input:focus {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 3px rgba(192,57,43,0.12);
+}
+
+.chat-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.send-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #c0392b;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.15s, transform 0.1s;
+}
+
+.send-btn:hover  { background-color: #a93226; }
+.send-btn:active { transform: scale(0.93); }
+.send-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Typing animation ────────────────────────────────────────────── */
+.typing-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.typing-dots span {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #a89e92;
+  animation: bounce-dot 1.2s infinite ease-in-out;
+}
+
+.typing-dots span:nth-child(1) { animation-delay: 0s; }
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce-dot {
+  0%, 60%, 100% { transform: translateY(0);   opacity: 0.6; }
+  30%            { transform: translateY(-6px); opacity: 1;   }
+}
+
+/* ── Message entrance animation ─────────────────────────────────── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.message-row {
+  animation: fade-in-up 0.2s ease-out;
+}
